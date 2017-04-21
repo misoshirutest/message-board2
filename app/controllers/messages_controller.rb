@@ -61,7 +61,7 @@ class MessagesController < ApplicationController
 
   # Strong Parameter
   def message_params
-    params.require(:message).permit(:content)
+    params.require(:message).permit(:content, :title)
   end
   #new から create へ送られてきたフォームの内容は params[:message] に入っています。しかし、 params[:message] をそのまま使用するのは、セキュリティの観点から推奨されません。直接 params[:message] を扱うのではなく、Strong Parameter（ストロングパラメータ）というフィルタを使用します。
 
