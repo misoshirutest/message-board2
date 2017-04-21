@@ -1,0 +1,17 @@
+<h1>メッセージ一覧</h1>
+
+<ul>
+  <% @messages.each do |message| %>
+    <li><%= link_to message.id, message %> : <%= message.content %></li>
+    <%#
+      link_to は Rails が提供する便利メソッドで、 link_to 表示文字列, リンク先 という形で記述します。
+      ここでは、表示文字列 は message.id つまりメッセージの id であり、リンク先 は message となっています。
+      リンク先 として message のように Model のインスタンス（レコード）を渡すと、自動的にそのインスタンスの 
+      show アクションへとリンクされるようになります。
+      省略せずに書くと message_path(message) となり、リンク先 にこう記述しても正常に動作します。 message も 
+      message_path(message) もどちらも最終的に /messages/1 など /messages/:id の形の URL を生成しているだけです。
+    %>
+  <% end %>
+</ul>
+
+<%= link_to '新規メッセージの投稿', new_message_path %>
