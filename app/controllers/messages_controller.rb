@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   def index
     # レコードの一覧表示
-    @messages = Message.all
+    @messages = Message.order(created_at: :desc).page(params[:page]).per(3)
     # インスタンス変数を経由することで Controller から View へ変数を渡すことができます。
   end
 
